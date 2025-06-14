@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin - Ajouter un membre</title>
+</head>
+<body>
+  <h2>Connexion Admin</h2>
+  <form id="login-form">
+    <input type="text" id="username" placeholder="Nom d'utilisateur" required>
+    <input type="password" id="password" placeholder="Mot de passe" required>
+    <button type="submit">Se connecter</button>
+  </form>
+  <div id="login-message"></div>
+
+  <div id="admin-section" style="display:none;">
+    <h2>Ajouter un nouveau membre</h2>
+    <form id="ajout-membre-form">
+      <input type="text" name="nom" placeholder="Nom" required>
+      <input type="email" name="email" placeholder="Email" required>
+      <input type="tel" name="telephone" placeholder="Téléphone" required>
+      <button type="submit">Ajouter</button>
+    </form>
+    <div id="ajout-resultat"></div>
+  </div>
+<script>
+const ADMIN_USER = "admin";
+const ADMIN_PASS = "motdepasse123"; // Change ce mot de passe !
+
+document.getElementById('login-form').addEventListener('submit', function(e) {
+  e.preventDefault();
+  const user = document.getElementById('username').value;
+  const pass = document.getElementById('password').value;
+  if (user === ADMIN_USER && pass === ADMIN_PASS) {
+    document.getElementById('login-form').style.display = "none";
+    document.getElementById('login-message').innerText = "Connexion réussie.";
+    document.getElementById('admin-section').style.display = "block";
+  } else {
+    document.getElementById('login-message').innerText = "Identifiants incorrects.";
+  }
+});
+
+document.getElementById('ajout-membre-form').addEventListener('submit', function(e) {
+  e.preventDefault();
+  // Ici, tu pourrais envoyer les infos à un serveur plus tard
+  document.getElementById('ajout-resultat').innerText = "Membre ajouté (simulation)";
+});
+</script>
+</body>
+</html>

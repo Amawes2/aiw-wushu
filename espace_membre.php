@@ -139,6 +139,55 @@ try {
     $eleves = $stmt->fetchAll(PDO::FETCH_ASSOC);
 } catch (PDOException $e) {
 }
+
+// Traitement de la création d'un compte membre
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['creer_compte'])) {
+    $nom = clean_input($_POST['nom_membre']);
+    $prenom = clean_input($_POST['prenom_membre']);
+    $email = clean_input($_POST['email_membre']);
+    $telephone = clean_input($_POST['telephone_membre']);
+    $password = clean_input($_POST['password_membre']);
+
+    // Validation
+    $errors = [];
+    if (empty($nom)) $errors[] = "Le nom est requis.";
+    if (empty($prenom)) $errors[] = "Le prénom est requis.";
+    if (empty($email) || !filter_var($email, FILTER_VALIDATE_EMAIL)) $errors[] = "Email valide requis.";
+    if (empty($telephone)) $errors[] = "Le numéro de téléphone est requis.";
+    if (empty($password) || strlen($password) < 6) $errors[] = "Le mot de passe doit contenir au moins 6 caractères.";
+
+    if (empty($errors)) {
+        try {
+            // Insérer le nouveau membre
+            $stmt = $pdo->prepare("INSERT INTO competiteurs (nom, prenom, email, telephone, role, password, club_id) VALUES (?, ?, ?, ?, 'maitre', ?, ?)");
+            $stmt->execute([$nom, $prenom, $email, $telephone, password_hash($password, PASSWORD_DEFAULT), $maitre['club_id']]);
+
+            $nouveau_membre_id = $pdo->lastInsertId();
+
+            // Créer le username
+            $club_name = 'Non affilié';
+            if ($maitre['club_id']) {
+                $stmt_club = $pdo->prepare("SELECT nom_club FROM clubs WHERE id = ?");
+                $stmt_club->execute([$maitre['club_id']]);
+                $club_data = $stmt_club->fetch(PDO::FETCH_ASSOC);
+                if ($club_data) {
+                    $club_name = $club_data['nom_club'];
+                }
+            }
+            $username = strtolower(str_replace([' ', '-', '\''], '_', $club_name)) . '_' . $nouveau_membre_id;
+
+            $stmt_update = $pdo->prepare("UPDATE competiteurs SET username = ? WHERE id = ?");
+            $stmt_update->execute([$username, $nouveau_membre_id]);
+
+            $message = "<div class='alert alert-success'>Compte membre créé avec succès ! Username : <strong>$username</strong></div>";
+        } catch (PDOException $e) {
+            $message = "<div class='alert alert-error'>Erreur lors de la création : " . $e->getMessage() . "</div>";
+        }
+    } else {
+        $message = "<div class='alert alert-error'>" . implode("<br>", $errors) . "</div>";
+    }
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -292,6 +341,9 @@ try {
                 <button onclick="toggleForm()" class="add-student-btn">
                     <i class="fas fa-plus"></i> Ajouter un Élève
                 </button>
+                <button onclick="toggleAccountForm()" class="add-student-btn" style="background: #007bff; margin-left: 10px;">
+                    <i class="fas fa-user-plus"></i> Créer un Compte Membre
+                </button>
             </div>
 
             <!-- Formulaire d'ajout d'élève -->
@@ -382,6 +434,44 @@ try {
                 </form>
             </div>
 
+            <!-- Formulaire de création de compte membre -->
+            <div id="account-form" class="form-section">
+                <h3><i class="fas fa-user-plus"></i> Créer un Compte Membre</h3>
+                <form method="POST" action="">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="nom_membre"><i class="fas fa-user"></i> Nom *</label>
+                            <input type="text" id="nom_membre" name="nom_membre" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="prenom_membre"><i class="fas fa-user"></i> Prénom *</label>
+                            <input type="text" id="prenom_membre" name="prenom_membre" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="email_membre"><i class="fas fa-envelope"></i> Email *</label>
+                            <input type="email" id="email_membre" name="email_membre" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="telephone_membre"><i class="fas fa-phone"></i> Téléphone *</label>
+                            <input type="tel" id="telephone_membre" name="telephone_membre" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="password_membre"><i class="fas fa-lock"></i> Mot de passe *</label>
+                        <input type="password" id="password_membre" name="password_membre" required minlength="6">
+                        <div style="font-size: 14px; color: #666; margin-top: 5px;">Minimum 6 caractères</div>
+                    </div>
+
+                    <button type="submit" name="creer_compte" class="btn-submit">
+                        <i class="fas fa-user-plus"></i> Créer le Compte
+                    </button>
+                </form>
+            </div>
+
             <!-- Liste des élèves -->
             <div>
                 <h3><i class="fas fa-list"></i> Mes Élèves (<?php echo count($eleves); ?>)</h3>
@@ -431,6 +521,11 @@ try {
     <script>
         function toggleForm() {
             const form = document.getElementById('add-form');
+            form.style.display = form.style.display === 'none' || form.style.display === '' ? 'block' : 'none';
+        }
+
+        function toggleAccountForm() {
+            const form = document.getElementById('account-form');
             form.style.display = form.style.display === 'none' || form.style.display === '' ? 'block' : 'none';
         }
 

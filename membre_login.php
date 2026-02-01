@@ -16,13 +16,13 @@ try {
 // Traitement de la connexion
 $message = '';
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $email = trim($_POST['email']);
+    $username = trim($_POST['username']);
     $password = $_POST['password'];
 
-    if (!empty($email) && !empty($password)) {
+    if (!empty($username) && !empty($password)) {
         try {
-            $stmt = $pdo->prepare("SELECT * FROM competiteurs WHERE email = ? AND role = 'maitre'");
-            $stmt->execute([$email]);
+            $stmt = $pdo->prepare("SELECT * FROM competiteurs WHERE username = ? AND role = 'maitre'");
+            $stmt->execute([$username]);
             $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
             if ($user && password_verify($password, $user['password'])) {
@@ -32,7 +32,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 header("Location: espace_membre.php");
                 exit();
             } else {
-                $message = "<div class='alert alert-error'>Email ou mot de passe incorrect.</div>";
+                $message = "<div class='alert alert-error'>Numéro d'utilisateur ou mot de passe incorrect.</div>";
             }
         } catch (PDOException $e) {
             $message = "<div class='alert alert-error'>Erreur lors de la connexion.</div>";
@@ -114,8 +114,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             <form method="POST" action="">
                 <div class="form-group">
-                    <label for="email"><i class="fas fa-envelope"></i> Email</label>
-                    <input type="email" id="email" name="email" required>
+                    <label for="username"><i class="fas fa-user"></i> Numéro d'utilisateur</label>
+                    <input type="text" id="username" name="username" required>
                 </div>
                 <div class="form-group">
                     <label for="password"><i class="fas fa-lock"></i> Mot de passe</label>

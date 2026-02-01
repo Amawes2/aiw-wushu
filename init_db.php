@@ -59,6 +59,14 @@ try {
     $pdo->exec($sql_competiteurs);
     echo "Table 'competiteurs' créée ou déjà existante.<br>";
 
+    // Ajouter la colonne username si elle n'existe pas
+    try {
+        $pdo->exec("ALTER TABLE competiteurs ADD COLUMN username TEXT");
+        echo "Colonne 'username' ajoutée à la table 'competiteurs'.<br>";
+    } catch (PDOException $e) {
+        // Colonne déjà existante, ignorer
+    }
+
     // Table des résultats
     $sql_resultats = "CREATE TABLE IF NOT EXISTS resultats (
         id INTEGER PRIMARY KEY AUTOINCREMENT,

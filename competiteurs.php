@@ -121,6 +121,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 }
             }
 
+            // Créer le username par défaut basé sur le nom du club
+            $username = strtolower(str_replace([' ', '-', '\''], '_', $club_name)) . '_' . $competiteur_id;
+
+            // Mettre à jour le compétiteur avec le username
+            try {
+                $stmt_update = $pdo->prepare("UPDATE competiteurs SET username = ? WHERE id = ?");
+                $stmt_update->execute([$username, $competiteur_id]);
+                $message .= "<br><strong>Username créé : $username</strong>";
+            } catch (PDOException $e) {
+                $message .= "<br><strong>Erreur UPDATE username : " . $e->getMessage() . "</strong>";
+            }
+
             // Envoyer l'email de confirmation
             $competitorData = [
                 'nom' => $nom,
@@ -136,12 +148,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if (sendRegistrationNotification('competitor', $competitorData)) {
                 $message = "<div class='alert alert-success'>Compétiteur inscrit avec succès ! Un email de confirmation vous a été envoyé.";
                 if ($role === 'maitre') {
+                    $message .= "<br>Votre numéro d'utilisateur (username) est : <strong>$username</strong><br>";
                     $message .= " <a href='espace_membre.php'>Cliquez ici pour accéder à votre espace membre.</a>";
                 }
                 $message .= "</div>";
             } else {
                 $message = "<div class='alert alert-success'>Compétiteur inscrit avec succès ! (Note: l'email de confirmation n'a pas pu être envoyé)";
                 if ($role === 'maitre') {
+                    $message .= "<br>Votre numéro d'utilisateur (username) est : <strong>$username</strong><br>";
                     $message .= " <a href='espace_membre.php'>Cliquez ici pour accéder à votre espace membre.</a>";
                 }
                 $message .= "</div>";

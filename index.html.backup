@@ -1,0 +1,831 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wushu Club CI</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/js-styles.css">
+</head>
+<body class="ivory-theme">
+    <!-- Site Public -->
+    <div id="public-site">
+        <!-- HEADER -->
+        <header class="global-header">
+            <div class="container header-top">
+                <div class="official-banner">
+                    <span class="official-tag">Site Officiel</span>
+                    <span> Wushu reconnue par le CI</span>
+                </div>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </header>
+
+        <!-- NAVIGATION -->
+        <nav class="main-nav">
+            <div class="container nav-container">
+                <div class="logo-container">
+                    <div class="logo">Wushu Club CI</div>
+                    <div class="logo-text">
+                        <h1>wushu ci</h1>
+                        <span>L'excellence martiale depuis 2010</span>
+                    </div>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="#" class="active">Accueil</a></li>
+                    <li><a href="#about">À Propos</a></li>
+                    <li><a href="#disciplines">Disciplines</a></li>
+                    <li><a href="#trainers">Entraîneurs</a></li>
+                    <li><a href="#schedule">Horaires</a></li>
+                    <li><a href="#gallery">Galerie</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="clubs.php">Inscriptions</a></li>
+                    <li><a href="competitions.php">Compétitions</a></li>
+                    <li><a href="membre_login.php">Espace Membre</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- HERO SECTION -->
+        <section class="hero" data-animate="fadeInUp">
+            <div class="hero-content">
+                <h1>L'ART MARTIAL CHINOIS EN CÔTE D'IVOIRE</h1>
+                <p>Depuis 2019, au cœur de la culture martiale ivoirienne</p>
+                <div class="btn-container">
+                    <a href="clubs.php" class="btn">S'inscrire Maintenant</a>
+                    <a href="#schedule" class="btn btn-outline">Voir les Horaires</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ABOUT SECTION -->
+        <section id="about" class="history-section" data-animate="fadeInUp">
+            <div class="container history-content">
+                <h2>Notre Histoire</h2>
+                <h3>Un parcours marqué par l'excellence</h3>
+                <p>Fondée en 2019, la Fédération Ivoirienne des Arts Martiaux Chinois (Wushu Club CI) s'est rapidement imposée comme un acteur majeur du paysage martial en Côte d'Ivoire. Née de la passion commune de ses fondateurs pour les arts martiaux chinois, la Wushu Club CI a grandi pour devenir une institution respectée, formant des champions et promouvant les valeurs des arts martiaux à travers le pays.</p>
+                <p>Notre mission est de développer et promouvoir le wushu sous toutes ses formes, tout en formant des élèves complets, tant sur le plan physique que moral. Nous croyons en un enseignement qui dépasse la simple technique pour toucher à la philosophie et aux valeurs fondamentales des arts martiaux.</p>
+                <a href="#trainers" class="btn">Rencontrer nos entraîneurs</a>
+            </div>
+        </section>
+
+        <!-- DISCIPLINES SECTION -->
+        <section id="disciplines" class="disciplines-section" data-animate="fadeInLeft">
+            <div class="container">
+                <h2 class="section-title">Nos Disciplines</h2>
+                <p class="section-subtitle">Découvrez les différentes formes d'arts martiaux chinois que nous enseignons à la Wushu Club CI</p>
+                
+                <div class="discipline-grid">
+                    <div class="discipline-card" data-animate="scaleIn" style="animation-delay: 0.1s;">
+                        <div class="discipline-content">
+                            <div class="discipline-icon">
+                                <i class="fas fa-fist-raised"></i>
+                            </div>
+                            <h3><a href="taolu.php" style="color: inherit; text-decoration: none;">Taolu</a></h3>
+                            <p>Formes traditionnelles et modernes, enchaînements techniques et chorégraphiques. Développe grâce, précision et maîtrise des mouvements.</p>
+                            <a href="taolu.php" class="btn btn-small">En savoir plus</a>
+                        </div>
+                    </div>
+                    
+                    <div class="discipline-card" data-animate="scaleIn" style="animation-delay: 0.2s;">
+                        <div class="discipline-content">
+                            <div class="discipline-icon">
+                                <i class="fas fa-user-shield"></i>
+                            </div>
+                            <h3><a href="sanda.php" style="color: inherit; text-decoration: none;">Sanda</a></h3>
+                            <p>Combat libre, self-défense et techniques de combat complet. Renforce l'agilité, la puissance et les réflexes.</p>
+                            <a href="sanda.php" class="btn btn-small">En savoir plus</a>
+                        </div>
+                    </div>
+                    
+                    <div class="discipline-card" data-animate="scaleIn" style="animation-delay: 0.3s;">
+                        <div class="discipline-content">
+                            <div class="discipline-icon">
+                                <i class="fas fa-wind"></i>
+                            </div>
+                            <h3><a href="qigong_taichi.php" style="color: inherit; text-decoration: none;">Qigong & Taichi</a></h3>
+                            <p>Exercices énergétiques pour la santé et la longévité. Améliore l'équilibre, la concentration et le bien-être général.</p>
+                            <a href="qigong_taichi.php" class="btn btn-small">En savoir plus</a>
+                        </div>
+                    </div>
+                    
+                    <div class="discipline-card" data-animate="scaleIn" style="animation-delay: 0.4s;">
+                        <div class="discipline-content">
+                            <div class="discipline-icon">
+                                <i class="fas fa-dragon"></i>
+                            </div>
+                            <h3><a href="formes_traditionnelles.php" style="color: inherit; text-decoration: none;">Formes Traditionnelles</a></h3>
+                            <p>Baji Quan, Wing Chun et autres styles ancestraux. Découvrez les racines profondes des arts martiaux chinois.</p>
+                            <a href="formes_traditionnelles.php" class="btn btn-small">En savoir plus</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TRAINERS SECTION -->
+        <section id="trainers" class="trainers-section" data-animate="fadeInRight">
+            <div class="container">
+                <h2 class="section-title">Nos Entraîneurs</h2>
+                <p class="section-subtitle">Rencontrez notre équipe d'experts en arts martiaux</p>
+                
+                <div class="grid-system">
+                    <div class="trainer-card">
+                        <div class="trainer-img">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="trainer-content">
+                            <h3>Laoshi Fofana Mamadou Sunfa</h3>
+                            <div class="trainer-title">Directeur Technique - Champion d'Afrique</div>
+                            <p>Expert en Sanda et Taolu avec plus de 15 ans d'expérience. Formé en Chine, il a remporté de nombreux titres internationaux.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="trainer-card">
+                        <div class="trainer-img">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="trainer-content">
+                            <h3>Maître Kouassi Yao</h3>
+                            <div class="trainer-title">Expert en Qigong et Taichi</div>
+                            <p>Spécialiste des arts énergétiques, formé pendant 5 ans dans les temples de Wudang. Transmet une approche holistique du wushu.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="trainer-card">
+                        <div class="trainer-img">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="trainer-content">
+                            <h3>Coach Aminata Diakité</h3>
+                            <div class="trainer-title">Championne Nationale de Taolu</div>
+                            <p>Spécialiste des formes traditionnelles et des armes. Son enseignement met l'accent sur la grâce et la précision technique.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SCHEDULE SECTION -->
+        <section id="schedule" class="schedule-section" data-animate="fadeInUp">
+            <div class="container">
+                <h2 class="section-title">Horaires & Tarifs</h2>
+                <p class="section-subtitle">Rejoignez-nous aux horaires qui vous conviennent</p>
+                
+                <div class="schedule-container">
+                    <div class="schedule-grid">
+                        <div class="schedule-day">
+                            <h3>Mercredi</h3>
+                            <div class="schedule-item">
+                                <div class="schedule-time">16h00 - 17h30</div>
+                                <div class="schedule-description">Enfants (6-12 ans) - Initiation au Wushu</div>
+                            </div>
+                            <div class="schedule-item">
+                                <div class="schedule-time">17h30 - 19h00</div>
+                                <div class="schedule-description">Adolescents - Taolu et Sanda</div>
+                            </div>
+                        </div>
+                        
+                        <div class="schedule-day">
+                            <h3>Samedi</h3>
+                            <div class="schedule-item">
+                                <div class="schedule-time">09h00 - 10h30</div>
+                                <div class="schedule-description">Taichi et Qigong pour tous niveaux</div>
+                            </div>
+                            <div class="schedule-item">
+                                <div class="schedule-time">10h30 - 12h30</div>
+                                <div class="schedule-description">Adultes - Sanda et combat</div>
+                            </div>
+                            <div class="schedule-item">
+                                <div class="schedule-time">15h00 - 17h00</div>
+                                <div class="schedule-description">Compétition - Entraînement avancé</div>
+                            </div>
+                        </div>
+                        
+                        <div class="schedule-day">
+                            <h3>Dimanche</h3>
+                            <div class="schedule-item">
+                                <div class="schedule-time">08h00 - 10h00</div>
+                                <div class="schedule-description">Formes traditionnelles (Baji Quan, Wing Chun)</div>
+                            </div>
+                            <div class="schedule-item">
+                                <div class="schedule-time">10h00 - 12h00</div>
+                                <div class="schedule-description">Cours de perfectionnement</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="pricing-box">
+                        <h3 class="pricing-title">Tarifs</h3>
+                        <div class="price">5.000 FCFA/mois</div>
+                        <ul class="pricing-features">
+                            <li>Accès illimité à tous les cours</li>
+                            <li>Encadrement par des experts</li>
+                            <li>Matériel d'entraînement fourni</li>
+                            <li>Cours de chinois et culture martiale</li>
+                            <li>Accès aux compétitions locales</li>
+                        </ul>
+                        <p>Frais d'inscription: 10.000 FCFA</p>
+                        <a href="#contact" class="btn">S'inscrire Maintenant</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- GALLERY SECTION -->
+        <section id="gallery" class="gallery-section" data-animate="fadeInLeft">
+            <div class="container">
+                <h2 class="section-title">Galerie Photos</h2>
+                <p class="section-subtitle">Découvrez nos athlètes en action et nos événements</p>
+                
+                <div class="gallery-grid">
+                    <div class="gallery-item">
+                        <img src="images/entraînement.jpg" alt="Entraînement">
+                        <div class="gallery-overlay">
+                            <h3>Entraînement intensif</h3>
+                            <p>Séance de Taolu avancé</p>
+                        </div>
+                    </div>
+                    
+                    <div class="gallery-item">
+                        <img src="images/compétition.jpg" alt="Compétition">
+                        <div class="gallery-overlay">
+                            <h3>Championnat National</h3>
+                            <p>Finale Sanda 2023</p>
+                        </div>
+                    </div>
+                    
+                    <div class="gallery-item">
+                        <img src="images/stage.jpg" alt="Stage">
+                        <div class="gallery-overlay">
+                            <h3>Stage international</h3>
+                            <p>Avec Maître Chen Wei</p>
+                        </div>
+                    </div>
+                    
+                    <div class="gallery-item">
+                        <img src="images/armes.jpg" alt="Armes">
+                        <div class="gallery-overlay">
+                            <h3>Pratique des armes</h3>
+                            <p>Formes traditionnelles</p>
+                        </div>
+                    </div>
+                    
+                    <div class="gallery-item">
+                        <img src="images/enfants.jpg" alt="Enfants">
+                        <div class="gallery-overlay">
+                            <h3>Section jeunesse</h3>
+                            <p>Initiation au Wushu</p>
+                        </div>
+                    </div>
+                    
+                    <div class="gallery-item">
+                        <img src="images/cérémonie.jpg" alt="Cérémonie">
+                        <div class="gallery-overlay">
+                            <h3>Cérémonie de remise de grades</h3>
+                            <p>Promotion 2023</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT SECTION -->
+        <section id="contact" class="contact-section" data-animate="fadeInUp">
+            <div class="container">
+                <h2 class="section-title">Contactez-nous</h2>
+                <p class="section-subtitle">Nous sommes à votre disposition pour répondre à vos questions</p>
+                
+                <div class="contact-grid">
+                    <div class="contact-info">
+                        <h3>Informations de Contact</h3>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div>
+                                <h4>Siège Social</h4>
+                                <p>Yamoussoukro, Côte d'Ivoire</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-school"></i>
+                            </div>
+                            <div>
+                                <h4>Salle d'Entraînement</h4>
+                                <p>Lycée Moderne Hamed Bakayoko (CMA PK18)</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div>
+                                <h4>Téléphone</h4>
+                                <p>+225 07 09 67 50 05</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h4>Email</h4>
+                                <p>contact@wushuclubci.ci</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div>
+                                <h4>Horaires d'Ouverture</h4>
+                                <p>Lundi-Vendredi: 9h-18h<br>Samedi: 8h-12h</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-form">
+                        <h3>Envoyez-nous un message</h3>
+                        <form method="post" action="contact.php">
+                            <div class="form-group">
+                                <input type="text" name="name" class="form-control" placeholder="Votre nom" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <input type="email" name="email" class="form-control" placeholder="Votre email" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <input type="tel" name="phone" class="form-control" placeholder="Votre téléphone">
+                            </div>
+                            
+                            <div class="form-group">
+                                <select name="subject" class="form-control">
+                                    <option>Sujet du message</option>
+                                    <option>Inscription</option>
+                                    <option>Informations sur les cours</option>
+                                    <option>Participation à une compétition</option>
+                                    <option>Partenariat</option>
+                                    <option>Autre demande</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <textarea name="message" class="form-control" placeholder="Votre message" required></textarea>
+                            </div>
+                            
+                            <button type="submit" class="btn">Envoyer le message</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PARTNERS SECTION -->
+        <section class="partners-section" data-animate="fadeInUp">
+            <div class="container">
+                <h2 class="section-title">Nos Partenaires</h2>
+                <div class="partners-grid">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Logo_of_the_International_Olympic_Committee_%282014-2020%29.svg/200px-Logo_of_the_International_Olympic_Committee_%282014-2020%29.svg.png" alt="CIO" class="partner-logo">
+                    <img src="https://upload.wikimedia.org/wikipedia/en/thumb/8/8e/International_Wushu_Federation_logo.svg/200px-International_Wushu_Federation_logo.svg.png" alt="IWUF" class="partner-logo">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Flag_of_Ivory_Coast.svg/200px-Flag_of_Ivory_Coast.svg.png" alt="Gouvernement Ivoirien" class="partner-logo">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Comit%C3%A9_National_Olympique_de_C%C3%B4te_d%27Ivoire_logo.png/200px-Comit%C3%A9_National_Olympique_de_C%C3%B4te_d%27Ivoire_logo.png" alt="CNO CI" class="partner-logo">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Africa_Olympic_Councils_Association_logo.png/200px-Africa_Olympic_Councils_Association_logo.png" alt="ANOCA" class="partner-logo">
+                </div>
+            </div>
+        </section>
+
+        <!-- FOOTER -->
+        <footer class="global-footer" data-animate="fadeInUp">
+            <div class="container">
+                <div class="footer-grid">
+                    <div class="footer-col">
+                        <h4>Wushu Club CI</h4>
+                        <ul class="footer-links">
+                            <li><a href="#">Accueil</a></li>
+                            <li><a href="#about">À propos</a></li>
+                            <li><a href="#disciplines">Disciplines</a></li>
+                            <li><a href="#trainers">Entraîneurs</a></li>
+                            <li><a href="#gallery">Galerie</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-col">
+                        <h4>Programmes</h4>
+                        <ul class="footer-links">
+                            <li><a href="#schedule">Horaires des cours</a></li>
+                            <li><a href="#">Cours pour enfants</a></li>
+                            <li><a href="#">Formation compétition</a></li>
+                            <li><a href="#">Stages intensifs</a></li>
+                            <li><a href="#">Formation des entraîneurs</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-col">
+                        <h4>Ressources</h4>
+                        <ul class="footer-links">
+                            <li><a href="#">Actualités</a></li>
+                            <li><a href="#">Calendrier des compétitions</a></li>
+                            <li><a href="#">Règlements</a></li>
+                            <li><a href="#">Documents à télécharger</a></li>
+                            <li><a href="#">FAQ</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-col">
+                        <h4>Contact</h4>
+                        <div class="contact-info">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Siège: abidjan<br>Salles d'entraînement: marcry zone 4</span>
+                        </div>
+                        <div class="contact-info">
+                            <i class="fas fa-phone"></i>
+                            <span></span>
+                        </div>
+                        <div class="contact-info">
+                            <i class="fas fa-envelope"></i>
+                            <span>contact@wushuclubci.ci</span>
+                        </div>
+                        <div class="contact-info">
+                            <i class="fas fa-globe"></i>
+                            <span>www.wushuclubci.ci</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="copyright">
+                    <p>&copy; 2023 Fédération Ivoirienne des Arts Martiaux Chinois (Wushu Club CI). Tous droits réservés.</p>
+                    <p>Fondée en 2019 - Membre de la Fédération Internationale de Wushu (IWUF)</p>
+                </div>
+                
+                <div class="admin-switch">
+                    <a href="login.php" class="btn btn-admin">Accéder à l'Administration</a>
+                </div>
+            </div>
+        </footer>
+    </div>
+    
+    <!-- Section Administration -->
+    <div id="admin-panel">
+        <div class="admin-container">
+            <!-- Sidebar -->
+            <div class="admin-sidebar">
+                <div class="admin-logo-container">
+                    <div class="admin-logo">Wushu Club CI</div>
+                    <div>
+                        <div class="admin-logo-text">Wushu Club CI ADMIN</div>
+                        <div class="admin-slogan">L'excellence martiale depuis 2010</div>
+                    </div>
+                </div>
+                
+                <div class="admin-menu-title">Tableau de Bord</div>
+                <ul class="admin-sidebar-menu">
+                    <li class="admin-menu-item active">
+                        <i class="fas fa-tachometer-alt"></i>
+                        <span class="admin-menu-text">Tableau de Bord</span>
+                    </li>
+                    <li class="admin-menu-item">
+                        <i class="fas fa-user"></i>
+                        <span class="admin-menu-text">Membres</span>
+                    </li>
+                    <li class="admin-menu-item">
+                        <i class="fas fa-calendar"></i>
+                        <span class="admin-menu-text">Événements</span>
+                    </li>
+                    <li class="admin-menu-item">
+                        <i class="fas fa-users"></i>
+                        <span class="admin-menu-text">Entraîneurs</span>
+                    </li>
+                    <li class="admin-menu-item">
+                        <i class="fas fa-dollar-sign"></i>
+                        <span class="admin-menu-text">Finances</span>
+                    </li>
+                </ul>
+                
+                <div class="admin-menu-title">Paramètres</div>
+                <ul class="admin-sidebar-menu">
+                    <li class="admin-menu-item">
+                        <i class="fas fa-cog"></i>
+                        <span class="admin-menu-text">Paramètres Généraux</span>
+                    </li>
+                    <li class="admin-menu-item">
+                        <i class="fas fa-lock"></i>
+                        <span class="admin-menu-text">Sécurité</span>
+                    </li>
+                    <li class="admin-menu-item">
+                        <i class="fas fa-bell"></i>
+                        <span class="admin-menu-text">Notifications</span>
+                    </li>
+                    <li class="admin-menu-item">
+                        <i class="fas fa-paint-brush"></i>
+                        <span class="admin-menu-text">Apparence</span>
+                    </li>
+                    <li class="admin-menu-item">
+                        <i class="fas fa-user-tag"></i>
+                        <span class="admin-menu-text">Rôles</span>
+                    </li>
+                </ul>
+                
+                <div class="admin-menu-title">Support</div>
+                <ul class="admin-sidebar-menu">
+                    <li class="admin-menu-item">
+                        <i class="fas fa-question-circle"></i>
+                        <span class="admin-menu-text">Aide</span>
+                    </li>
+                    <li class="admin-menu-item">
+                        <i class="fas fa-sign-out-alt"></i>
+                        <span class="admin-menu-text">Déconnexion</span>
+                    </li>
+                </ul>
+            </div>
+            
+            <!-- Main Content -->
+            <div class="admin-main-content">
+                <!-- Header -->
+                <div class="admin-header">
+                    <h1 class="admin-page-title">Tableau de Bord</h1>
+                    <div class="admin-user-profile">
+                        <div class="admin-user-info">
+                            <div class="admin-user-name">Laoshi Fofana</div>
+                            <div class="admin-user-role">Directeur Technique</div>
+                        </div>
+                        <div class="admin-avatar">LF</div>
+                    </div>
+                </div>
+                
+                <!-- Dashboard Stats -->
+                <div class="admin-dashboard">
+                    <div class="admin-card">
+                        <div class="admin-card-header">
+                            <div class="admin-card-title">Membres Actifs</div>
+                            <div class="admin-card-icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                        </div>
+                        <div class="admin-card-value">87</div>
+                        <div class="admin-card-footer">
+                            <i class="fas fa-arrow-up"></i> 12% ce mois-ci
+                        </div>
+                    </div>
+                    
+                    <div class="admin-card">
+                        <div class="admin-card-header">
+                            <div class="admin-card-title">Événements à Venir</div>
+                            <div class="admin-card-icon">
+                                <i class="fas fa-calendar-check"></i>
+                            </div>
+                        </div>
+                        <div class="admin-card-value">5</div>
+                        <div class="admin-card-footer">
+                            Prochain: Championnat National
+                        </div>
+                    </div>
+                    
+                    <div class="admin-card">
+                        <div class="admin-card-header">
+                            <div class="admin-card-title">Revenus Mensuels</div>
+                            <div class="admin-card-icon">
+                                <i class="fas fa-dollar-sign"></i>
+                            </div>
+                        </div>
+                        <div class="admin-card-value">435,000 FCFA</div>
+                        <div class="admin-card-footer">
+                            <i class="fas fa-arrow-up"></i> 8% ce mois-ci
+                        </div>
+                    </div>
+                    
+                    <div class="admin-card">
+                        <div class="admin-card-header">
+                            <div class="admin-card-title">Taux d'Engagement</div>
+                            <div class="admin-card-icon">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                        </div>
+                        <div class="admin-card-value">78%</div>
+                        <div class="admin-card-footer">
+                            <i class="fas fa-arrow-up"></i> 3% ce mois-ci
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Recent Members -->
+                <div class="admin-data-section">
+                    <div class="admin-section-header">
+                        <h2 class="admin-section-title">Derniers Membres Inscrits</h2>
+                        <button class="admin-btn admin-btn-primary">
+                            <i class="fas fa-plus"></i> Nouveau Membre
+                        </button>
+                    </div>
+                    
+                    <table class="admin-table">
+                        <thead>
+                            <tr>
+                                <th>Nom</th>
+                                <th>Date d'Inscription</th>
+                                <th>Discipline</th>
+                                <th>Niveau</th>
+                                <th>Statut</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Koffi Kouamé</td>
+                                <td>14/06/2023</td>
+                                <td>Sanda</td>
+                                <td>Débutant</td>
+                                <td><span class="admin-status admin-status-active">Actif</span></td>
+                                <td>
+                                    <button class="admin-action-btn"><i class="fas fa-edit"></i></button>
+                                    <button class="admin-action-btn"><i class="fas fa-trash"></i></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Aïcha Diabaté</td>
+                                <td>13/06/2023</td>
+                                <td>Taolu</td>
+                                <td>Avancé</td>
+                                <td><span class="admin-status admin-status-active">Actif</span></td>
+                                <td>
+                                    <button class="admin-action-btn"><i class="fas fa-edit"></i></button>
+                                    <button class="admin-action-btn"><i class="fas fa-trash"></i></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Jean Dupont</td>
+                                <td>12/06/2023</td>
+                                <td>Taichi</td>
+                                <td>Intermédiaire</td>
+                                <td><span class="admin-status admin-status-pending">En attente</span></td>
+                                <td>
+                                    <button class="admin-action-btn"><i class="fas fa-edit"></i></button>
+                                    <button class="admin-action-btn"><i class="fas fa-trash"></i></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Fatou N'Diaye</td>
+                                <td>10/06/2023</td>
+                                <td>Qigong</td>
+                                <td>Débutant</td>
+                                <td><span class="admin-status admin-status-active">Actif</span></td>
+                                <td>
+                                    <button class="admin-action-btn"><i class="fas fa-edit"></i></button>
+                                    <button class="admin-action-btn"><i class="fas fa-trash"></i></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Mohamed Koné</td>
+                                <td>08/06/2023</td>
+                                <td>Wing Chun</td>
+                                <td>Avancé</td>
+                                <td><span class="admin-status admin-status-inactive">Inactif</span></td>
+                                <td>
+                                    <button class="admin-action-btn"><i class="fas fa-edit"></i></button>
+                                    <button class="admin-action-btn"><i class="fas fa-trash"></i></button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <!-- Upcoming Events -->
+                <div class="admin-data-section">
+                    <div class="admin-section-header">
+                        <h2 class="admin-section-title">Événements à Venir</h2>
+                        <button class="admin-btn admin-btn-primary">
+                            <i class="fas fa-plus"></i> Nouvel Événement
+                        </button>
+                    </div>
+                    
+                    <table class="admin-table">
+                        <thead>
+                            <tr>
+                                <th>Événement</th>
+                                <th>Date</th>
+                                <th>Lieu</th>
+                                <th>Participants</th>
+                                <th>Statut</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Championnat National</td>
+                                <td>25/06/2023</td>
+                                <td>Abidjan</td>
+                                <td>42</td>
+                                <td><span class="admin-status admin-status-active">Confirmé</span></td>
+                                <td>
+                                    <button class="admin-action-btn"><i class="fas fa-edit"></i></button>
+                                    <button class="admin-action-btn"><i class="fas fa-trash"></i></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Stage International</td>
+                                <td>15/07/2023</td>
+                                <td>Yamoussoukro</td>
+                                <td>28</td>
+                                <td><span class="admin-status admin-status-pending">En préparation</span></td>
+                                <td>
+                                    <button class="admin-action-btn"><i class="fas fa-edit"></i></button>
+                                    <button class="admin-action-btn"><i class="fas fa-trash"></i></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Compétition Régionale</td>
+                                <td>05/08/2023</td>
+                                <td>Bouaké</td>
+                                <td>18</td>
+                                <td><span class="admin-status admin-status-pending">En préparation</span></td>
+                                <td>
+                                    <button class="admin-action-btn"><i class="fas fa-edit"></i></button>
+                                    <button class="admin-action-btn"><i class="fas fa-trash"></i></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Cérémonie de Remise de Grades</td>
+                                <td>10/09/2023</td>
+                                <td>Dojo Principal</td>
+                                <td>65</td>
+                                <td><span class="admin-status admin-status-active">Confirmé</span></td>
+                                <td>
+                                    <button class="admin-action-btn"><i class="fas fa-edit"></i></button>
+                                    <button class="admin-action-btn"><i class="fas fa-trash"></i></button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="admin-data-section">
+                    <div class="admin-section-header">
+                        <h2 class="admin-section-title">Retour au site public</h2>
+                        <button class="admin-btn" onclick="showPublicSite()">
+                            <i class="fas fa-globe"></i> Retour au site
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Navigation fluide pour le site public
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // Script pour la navigation admin
+        document.querySelectorAll('.admin-menu-item').forEach(item => {
+            item.addEventListener('click', function() {
+                document.querySelectorAll('.admin-menu-item').forEach(i => i.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+        
+        // Fonctions de bascule entre site public et admin
+        function showAdminPanel() {
+            document.getElementById('public-site').style.display = 'none';
+            document.getElementById('admin-panel').style.display = 'block';
+        }
+        
+        function showPublicSite() {
+            document.getElementById('admin-panel').style.display = 'none';
+            document.getElementById('public-site').style.display = 'block';
+        }
+        
+        // Animation des cartes admin
+        document.querySelectorAll('.admin-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-5px)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
+            });
+        });
+    </script>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

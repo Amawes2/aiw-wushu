@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IWUF - Système de Compétitions</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        header {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        header h1 {
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+        header p {
+            color: #666;
+            font-size: 0.95em;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        .card {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .card h3 {
+            color: #667eea;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .card ul {
+            list-style: none;
+            margin-left: 0;
+        }
+        .card li {
+            padding: 8px 0;
+            border-bottom: 1px solid #eee;
+            color: #555;
+        }
+        .card li:last-child {
+            border-bottom: none;
+        }
+        .section {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+        .section h2 {
+            color: #667eea;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #667eea;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background: #667eea;
+            color: white;
+            font-weight: bold;
+        }
+        tr:hover {
+            background: #f9f9f9;
+        }
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background: #667eea;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            margin: 5px;
+            transition: all 0.3s;
+        }
+        .btn:hover {
+            background: #764ba2;
+            transform: translateY(-2px);
+        }
+        .btn-success { background: #28a745; }
+        .btn-success:hover { background: #218838; }
+        .badge {
+            display: inline-block;
+            padding: 4px 8px;
+            background: #667eea;
+            color: white;
+            border-radius: 3px;
+            font-size: 0.85em;
+        }
+        .stat {
+            flex: 1;
+            text-align: center;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 5px;
+            margin: 10px 5px;
+        }
+        .stat-number {
+            font-size: 2em;
+            font-weight: bold;
+        }
+        .stat-label {
+            font-size: 0.9em;
+            opacity: 0.9;
+        }
+        .flex {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <h1>🏆 Système de Gestion des Compétitions IWUF</h1>
+            <p>Wushu Club CI - Phase 1: Structuration des Routines et Scoring</p>
+        </header>
+
+        <!-- Statistiques -->
+        <div class="grid">
+            <div class="stat">
+                <div class="stat-number">5</div>
+                <div class="stat-label">Styles IWUF</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">5</div>
+                <div class="stat-label">Catégories</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">12</div>
+                <div class="stat-label">Armes</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">0</div>
+                <div class="stat-label">Compétitions Actives</div>
+            </div>
+        </div>
+
+        <!-- Fonctionnalités Implémentées -->
+        <div class="grid">
+            <div class="card">
+                <h3>🤸 Gestion des Routines</h3>
+                <ul>
+                    <li>✅ Création de routines</li>
+                    <li>✅ 5 styles IWUF</li>
+                    <li>✅ 12 spécialisations d'armes</li>
+                    <li>✅ Validation des durées</li>
+                    <li>✅ Types: Libre, Imposée</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h3>⭐ Système de Scoring</h3>
+                <ul>
+                    <li>✅ 3 groupes de juges (A, B, C)</li>
+                    <li>✅ Calcul de difficultés</li>
+                    <li>✅ Évaluation exécution</li>
+                    <li>✅ Score présentation</li>
+                    <li>✅ Normalisation extrêmes</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h3>📢 Système d'Appels</h3>
+                <ul>
+                    <li>✅ Max 2 appels par équipe</li>
+                    <li>✅ 3 types d'appels</li>
+                    <li>✅ Frais: 200 USD</li>
+                    <li>✅ Remboursement si accepté</li>
+                    <li>✅ Décision par arbitres</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h3>👨‍⚖️ Gestion des Arbitres</h3>
+                <ul>
+                    <li>✅ Profils arbitres</li>
+                    <li>✅ Niveaux certification</li>
+                    <li>✅ Spécialités par style</li>
+                    <li>✅ Affectation compétitions</li>
+                    <li>✅ Types arbitrage</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h3>🎖️ Résultats & Médailles</h3>
+                <ul>
+                    <li>✅ Calcul scores finaux</li>
+                    <li>✅ Classement automat.</li>
+                    <li>✅ Attribution médailles</li>
+                    <li>✅ Résolution égalités</li>
+                    <li>✅ Points podium</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h3>📊 Rapports</h3>
+                <ul>
+                    <li>✅ Détail jugements</li>
+                    <li>✅ Scores par groupe</li>
+                    <li>✅ Moyennes judges</li>
+                    <li>✅ Export données</li>
+                    <li>✅ Statistiques</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Structure IWUF -->
+        <div class="section">
+            <h2>📋 Structure des Styles IWUF</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Style</th>
+                        <th>Durée Routine Libre</th>
+                        <th>Durée Routine Imposée</th>
+                        <th>Armes Available</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Chang Quan</strong></td>
+                        <td>2:30 - 3:30</td>
+                        <td>1:00 - 1:30</td>
+                        <td>Dao, Gun, Jian, Qiang</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Nan Quan</strong></td>
+                        <td>2:30 - 3:30</td>
+                        <td>1:00 - 1:30</td>
+                        <td>Nan Dao, Gun Dao</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Taichi</strong></td>
+                        <td>2:45 - 3:15</td>
+                        <td>4:00 - 6:00</td>
+                        <td>Taiji Jian, Tai Chi Shan</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Shaolin</strong></td>
+                        <td>2:30 - 3:30</td>
+                        <td>1:00 - 1:30</td>
+                        <td>Dao, Gun, Jian, Qiang</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Sanda</strong></td>
+                        <td colspan="2">Pas de routine (Combat)</td>
+                        <td>N/A</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Catégories -->
+        <div class="section">
+            <h2>👥 Catégories de Compétiteurs IWUF</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Catégorie</th>
+                        <th>Âge Min</th>
+                        <th>Âge Max</th>
+                        <th>Public</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><span class="badge">Enfant</span></td>
+                        <td>5 ans</td>
+                        <td>8 ans</td>
+                        <td>Enfants</td>
+                    </tr>
+                    <tr>
+                        <td><span class="badge">Cadet</span></td>
+                        <td>9 ans</td>
+                        <td>14 ans</td>
+                        <td>Adolescents</td>
+                    </tr>
+                    <tr>
+                        <td><span class="badge">Junior</span></td>
+                        <td>15 ans</td>
+                        <td>17 ans</td>
+                        <td>Jeunes</td>
+                    </tr>
+                    <tr>
+                        <td><span class="badge">Senior</span></td>
+                        <td>18 ans</td>
+                        <td>35 ans</td>
+                        <td>Adultes</td>
+                    </tr>
+                    <tr>
+                        <td><span class="badge">Master 35+</span></td>
+                        <td>36 ans</td>
+                        <td>+</td>
+                        <td>Seniors</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Système de Scoring -->
+        <div class="section">
+            <h2>⭐ Système de Scoring IWUF (100 points)</h2>
+            
+            <h4>Groupe A - Difficulté (Groupe A Judges)</h4>
+            <p>Évalue les techniques difficiles réussies et les connexions difficiles.</p>
+            <ul>
+                <li><strong>Techniques difficiles:</strong> 3 points chacune</li>
+                <li><strong>Connexions difficiles:</strong> 2 points chacune</li>
+            </ul>
+
+            <h4 style="margin-top: 15px;">Groupe B - Exécution (Groupe B Judges)</h4>
+            <p>Évalue la qualité du mouvement, l'harmonie et l'équilibre.</p>
+            <ul>
+                <li>Commence à 100 points</li>
+                <li>Déductions pour: mouvements imparfaits, manque d'équilibre, etc.</li>
+            </ul>
+
+            <h4 style="margin-top: 15px;">Groupe C - Présentation (Groupe C Judges)</h4>
+            <p>Évalue la présentation générale, le costume et la musique.</p>
+            <ul>
+                <li>Commence à 100 points</li>
+                <li>Déductions pour: costume non conforme, problèmes musique, etc.</li>
+            </ul>
+
+            <h4 style="margin-top: 15px;">Calcul du Score Final</h4>
+            <ol>
+                <li>Moyennes normalisées (enlever extrêmes) pour chaque groupe</li>
+                <li>Moyenne des 3 groupes = Score final (0-100)</li>
+                <li>Les juges pour chaque groupe sont entre 3 et 5</li>
+            </ol>
+        </div>
+
+        <!-- Règles d'Appels -->
+        <div class="section">
+            <h2>📢 Système d'Appels IWUF</h2>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
+                <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #667eea;">
+                    <h4>📋 Limitations</h4>
+                    <ul>
+                        <li>Max 2 appels par équipe</li>
+                        <li>1 seul sujet par appel</li>
+                        <li>Délai: 15 min après la routine</li>
+                        <li>Frais: 200 USD</li>
+                    </ul>
+                </div>
+
+                <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #764ba2;">
+                    <h4>📌 Types d'Appels</h4>
+                    <ul>
+                        <li>Évaluation de la difficulté</li>
+                        <li>Évaluation de l'exécution</li>
+                        <li>Déduction temps limite</li>
+                    </ul>
+                </div>
+
+                <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #28a745;">
+                    <h4>🏅 Décision</h4>
+                    <ul>
+                        <li>Jury des appels ≥50%</li>
+                        <li>Si accepté: remboursement 200 USD</li>
+                        <li>Décision finale</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Prochaines Étapes -->
+        <div class="section">
+            <h2>🚀 Phase 2 - Prochaines Étapes</h2>
+            
+            <div class="flex">
+                <div style="flex: 1; background: #f9f9f9; padding: 15px; border-radius: 5px;">
+                    <h4>💳 Système de Paiement</h4>
+                    <p>Intégration Stripe/PayPal pour les inscriptions et frais d'appels</p>
+                </div>
+
+                <div style="flex: 1; background: #f9f9f9; padding: 15px; border-radius: 5px;">
+                    <h4>📄 Génération PDF</h4>
+                    <p>Certificats, résultats, rapports de compétition</p>
+                </div>
+
+                <div style="flex: 1; background: #f9f9f9; padding: 15px; border-radius: 5px;">
+                    <h4>📧 Notifications</h4>
+                    <p>Emails transactionnels et notifications push</p>
+                </div>
+            </div>
+
+            <div class="flex" style="margin-top: 20px;">
+                <div style="flex: 1; background: #f9f9f9; padding: 15px; border-radius: 5px;">
+                    <h4>📊 Dashboard Temps Réel</h4>
+                    <p>Suivi live des compétitions et classements</p>
+                </div>
+
+                <div style="flex: 1; background: #f9f9f9; padding: 15px; border-radius: 5px;">
+                    <h4>🎯 API Publique</h4>
+                    <p>API REST pour intégrations externes</p>
+                </div>
+
+                <div style="flex: 1; background: #f9f9f9; padding: 15px; border-radius: 5px;">
+                    <h4>🌍 Multilangue</h4>
+                    <p>Support FR/EN pour accès international</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Fichiers Créés -->
+        <div class="section">
+            <h2>📂 Fichiers Créés - Phase 1</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Fichier</th>
+                        <th>Description</th>
+                        <th>Lignes</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>iwuf_manager.php</code></td>
+                        <td>Classe principale - Gestion routines, scoring, appels</td>
+                        <td>700+</td>
+                    </tr>
+                    <tr>
+                        <td><code>iwuf_scoring.php</code></td>
+                        <td>Système de scoring IWUF avec 3 groupes juges</td>
+                        <td>400+</td>
+                    </tr>
+                    <tr>
+                        <td><code>competitions_iwuf_admin.php</code></td>
+                        <td>Interface d'administration avec 6 tabs</td>
+                        <td>600+</td>
+                    </tr>
+                    <tr>
+                        <td><code>handle_iwuf.php</code></td>
+                        <td>Gestionnaire de requêtes AJAX/POST</td>
+                        <td>350+</td>
+                    </tr>
+                    <tr>
+                        <td><code>test_iwuf.html</code></td>
+                        <td>Cette page de documentation et tests</td>
+                        <td>-</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"><strong>Base de Données:</strong> 10 nouvelles tables IWUF</td>
+                        <td>+500 lignes SQL</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Actions Rapides -->
+        <div style="text-align: center; margin: 30px 0;">
+            <h2 style="color: white; margin-bottom: 20px;">🎯 Démarrer</h2>
+            <a href="competitions_iwuf_admin.php?action=competitions" class="btn btn-success" style="padding: 15px 30px; font-size: 1.1em;">
+                📋 Accéder au Panel Admin IWUF
+            </a>
+        </div>
+
+        <!-- Footer -->
+        <footer style="text-align: center; color: white; padding: 20px;">
+            <p>Wushu Club CI - Système IWUF Phase 1 ✨</p>
+            <p style="font-size: 0.9em; opacity: 0.8;">Avril 2026</p>
+        </footer>
+    </div>
+</body>
+</html>
